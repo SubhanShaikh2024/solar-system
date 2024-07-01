@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    overflow: hidden;
+}
+
+.main {
+    font-size: 10px;
+    height: 640px;
+    width: 640px;
+    position: relative;
+}
+
+.sun {
+    position: absolute;
+    top: 240px;
+    left: 240px;
+    height: 160px;
+    width: 160px;
+    background-color: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 1.6px #fff; /* subtle glow effect */
+}
+
+.earth, .moon {
+    position: absolute;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+    border-radius: 50%;
+    border-width: 1.6px 1.6px 0 0; /* creates a triangle shape */
+}
+
+.earth {
+    top: 80px;
+    left: 80px;
+    height: 480px;
+    width: 480px;
+    animation: orbit 36s linear infinite; /* earth's orbit animation */
+}
+
+.moon {
+    top: 0;
+    left: 0;
+    height: 128px;
+    width: 128px;
+    animation: orbit 3s linear infinite; /* moon's orbit animation */
+}
+
+.earth:before, .moon::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
+
+.earth:before {
+    top: 50px;
+    left: 50px;
+    height: 48px;
+    width: 48px;
+    background-color: aqua; /* earth's moon (aqua color) */
+}
+
+.moon:before {
+    top: 13px;
+    right: 3px;
+    height: 20px;
+    width: 20px;
+    background-color: silver; /* moon's moon (silver color) */
+}
+
+@keyframes orbit {
+    to {
+        transform: rotate(360deg); /* full rotation */
+    }
+}
